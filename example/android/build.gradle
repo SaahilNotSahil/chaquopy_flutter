@@ -1,22 +1,22 @@
-buildscript {
-    ext.kotlin_version = '1.7.0'
-    repositories {
-        google()
-        jcenter()
-        maven { url 'https://chaquo.com/maven' }
-    }
+// buildscript {
+//     ext.kotlin_version = '1.7.0'
+//     repositories {
+//         google()
+//         jcenter()
+//         maven { url 'https://chaquo.com/maven' }
+//     }
 
-    dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
-        classpath "com.chaquo.python:gradle:12.0.0"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
+//     dependencies {
+//         classpath 'com.android.tools.build:gradle:4.1.0'
+//         classpath "com.chaquo.python:gradle:12.0.0"
+//         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+//     }
+// }
 
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
@@ -28,6 +28,6 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
-task clean(type: Delete) {
+tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
